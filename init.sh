@@ -26,7 +26,7 @@ eval "$(conda shell.zsh hook)"
 
 conda create -n "$env_name" python="$python_version"
 
-# Create .envrc
+# Create .envrc for direnv
 envrc_content="#!/bin/bash
 
 if [ -e \"\$HOME/miniforge3/bin/activate\" ]; then
@@ -40,10 +40,10 @@ envrc_content="${envrc_content//$ENVRC_PLACEHOLDER/$env_name}"
 
 echo "$envrc_content" > .envrc
 
-# Configure direnv
 direnv allow
 
 # Add pre-commit hook for automatic package saving
+source .envrc
 conda env export > "$CONDA_ENV_FILE"
 
 echo "#!/bin/sh
