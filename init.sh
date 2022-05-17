@@ -42,17 +42,6 @@ echo "$envrc_content" > .envrc
 
 direnv allow
 
-# Add pre-commit hook for automatic package saving
+# Create conda env file
 source .envrc
 conda env export > "$CONDA_ENV_FILE"
-
-echo "#!/bin/sh
-
-conda env export > \"$CONDA_ENV_FILE\"
-
-for FILE in \`git diff --staged --name-only\`; do
-    git add \$FILE
-done" > pre-commit
-
-chmod 755 pre-commit
-mv pre-commit .git/hooks/pre-commit
