@@ -3,7 +3,9 @@
 # Define constants
 DEFAULT_ENV_NAME="anaconda_template"
 DEFAULT_PTHON_VERSION="3.9"
+
 ENVRC_PLACEHOLDER="<ENVRC_PLACEHOLDER>"
+CONDA_ENV_FILE="conda_env.yml"
 
 # Input custom values
 echo -n "Env name [${DEFAULT_ENV_NAME}]: "
@@ -40,3 +42,15 @@ echo "$envrc_content" > .envrc
 
 # Configure direnv
 direnv allow
+
+# Add pre-commit hook for automatic package saving
+echo "\!/bin/sh
+
+conda env export > $CONDA_ENV_FILE
+
+for FILE in \`git diff --staged --name-only\`; do
+    git add \$FILE
+done" > pre-commit
+
+chmod 755 pre-commit
+mv pre-commit .git/hooks/pre-commit
