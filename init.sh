@@ -22,7 +22,7 @@ fi
 
 eval "$(conda shell.zsh hook)"
 
-conda create -n "${env_name:-$DEFAULT_ENV_NAME}" python="${python_version:-$DEFAULT_PTHON_VERSION}"
+conda create -n "$env_name" python="$python_version"
 
 # Create .envrc
 envrc_content="#!/bin/bash
