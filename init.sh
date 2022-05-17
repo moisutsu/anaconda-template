@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# Define constants
 DEFAULT_ENV_NAME="anaconda_template"
 DEFAULT_PTHON_VERSION="3.9"
 ENVRC_PLACEHOLDER="<ENVRC_PLACEHOLDER>"
 
+# Input custom values
 echo -n "Env name [${DEFAULT_ENV_NAME}]: "
 read -r env_name
 
@@ -13,6 +15,7 @@ read -r python_version
 env_name="${env_name:-$DEFAULT_ENV_NAME}"
 python_version="${python_version:-$DEFAULT_PTHON_VERSION}"
 
+# Create conda virtual environment
 if [ -e "$HOME/miniforge3/bin/activate" ]; then
     source "$HOME/miniforge3/bin/activate"
 fi
@@ -21,6 +24,7 @@ eval "$(conda shell.zsh hook)"
 
 conda create -n "${env_name:-$DEFAULT_ENV_NAME}" python="${python_version:-$DEFAULT_PTHON_VERSION}"
 
+# Create .envrc
 envrc_content="#!/bin/bash
 
 if [ -e \"\$HOME/miniforge3/bin/activate\" ]; then
@@ -34,4 +38,5 @@ envrc_content="${envrc_content//$ENVRC_PLACEHOLDER/$env_name}"
 
 echo "$envrc_content" > .envrc
 
+# Configure direnv
 direnv allow
