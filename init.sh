@@ -45,3 +45,6 @@ direnv allow
 # Create conda env file
 source .envrc
 conda env export > "$CONDA_ENV_FILE"
+
+# Use pip in conda
+conda config --set pip_interop_enabled True
