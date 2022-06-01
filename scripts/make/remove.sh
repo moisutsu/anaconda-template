@@ -7,5 +7,3 @@ fi
 conda deactivate
 
 conda env remove -n "$ENV_NAME"
-
-rm .envrc
