@@ -1,7 +1,7 @@
 SHELL=/bin/bash
 
 export
-ENV_NAME ?= anaconda_template
+ENV_NAME ?= $(shell basename $(CURDIR))
 PTHON_VERSION ?= 3.9
 ENVRC_PLACEHOLDER = <ENVRC_PLACEHOLDER>
 CONDA_ENV_FILE = environment.yml

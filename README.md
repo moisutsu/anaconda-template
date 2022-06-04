@@ -15,7 +15,7 @@ Create a virtual environment for conda, set up direnv, etc.
 make init
 ```
 
-The default virtual environment name is `anaconda_template` and the default Python version is `3.9`.
+The default virtual environment name is the *current directory name* and the default Python version is `3.9`.
 
 You can customize the virtual environment name and Python version as follows.
 
