@@ -36,5 +36,5 @@ make env
 Remove the conda virtual environment.
 
 ```bash
-make remove ENV_NAME=<target-env-name>
+make remove
 ```

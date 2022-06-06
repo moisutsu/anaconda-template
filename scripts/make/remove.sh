@@ -1,8 +1,17 @@
 #!/bin/bash -eu
 
-if [ -e "$HOME/miniforge3/bin/activate" ]; then
-    source "$HOME/miniforge3/bin/activate"
-fi
+ENV_NAME="$CONDA_DEFAULT_ENV"
+
+while true; do
+    read -p "Remove virtual environment \"$ENV_NAME\" ([y]/n)? " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit 0;;
+        * ) ;;
+    esac
+done
+
+eval "$(conda shell.zsh hook)"
 
 conda deactivate
 
