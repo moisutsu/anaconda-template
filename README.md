@@ -31,6 +31,14 @@ Write environment information in `environment.yml`.
 make env
 ```
 
+### Import environmental information
+
+Install the libraries written in `environment.yml`.
+
+```bash
+make update
+```
+
 ### Remove virtual environment
 
 Remove the conda virtual environment.
