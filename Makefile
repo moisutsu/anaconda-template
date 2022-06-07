@@ -18,3 +18,7 @@ env:
 .PHONY: remove
 remove:
 	bash scripts/make/remove.sh
+
+.PHONY: update
+update:
+	bash scripts/make/update.sh
