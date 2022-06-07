@@ -28,7 +28,7 @@ make init ENV_NAME=custom_name PYTHON_VERSION=3.10
 Write environment information in `environment.yml`.
 
 ```bash
-make env
+make export
 ```
 
 ### Import environmental information
@@ -36,7 +36,7 @@ make env
 Install the libraries written in `environment.yml`.
 
 ```bash
-make update
+make import
 ```
 
 ### Remove virtual environment

@@ -11,14 +11,14 @@ CONDA_ENV_FILE = environment.yml
 init:
 	bash scripts/make/init.sh
 
-.PHONY: env
+.PHONY: export
 env:
-	bash scripts/make/env.sh
+	bash scripts/make/export.sh
+
+.PHONY: import
+update:
+	bash scripts/make/import.sh
 
 .PHONY: remove
 remove:
 	bash scripts/make/remove.sh
-
-.PHONY: update
-update:
-	bash scripts/make/update.sh
