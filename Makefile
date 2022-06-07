@@ -12,11 +12,11 @@ init:
 	bash scripts/make/init.sh
 
 .PHONY: export
-env:
+export:
 	bash scripts/make/export.sh
 
 .PHONY: import
-update:
+import:
 	bash scripts/make/import.sh
 
 .PHONY: remove
