@@ -1,12 +1,12 @@
 #!/bin/bash -eu
 
-# Create conda virtual environment
+# Load conda
 if [ -e "$HOME/miniforge3/bin/activate" ]; then
     source "$HOME/miniforge3/bin/activate"
 fi
-
 eval "$(conda shell.zsh hook)"
 
+# Create conda virtual environment
 conda create -n "$ENV_NAME" python="$PTHON_VERSION"
 
 # Create .envrc for direnv
