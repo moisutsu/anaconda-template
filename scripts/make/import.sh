@@ -1,3 +1,3 @@
 #!/bin/bash -eu
 
-conda env update
+conda env update -f "$CONDA_ENV_FILE"
