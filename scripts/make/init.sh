@@ -10,18 +10,14 @@ eval "$(conda shell.zsh hook)"
 conda create -n "$ENV_NAME" python="$PTHON_VERSION"
 
 # Create .envrc for direnv
-envrc_content="#!/bin/bash
+echo "#!/bin/bash
 
 if [ -e \"\$HOME/miniforge3/bin/activate\" ]; then
     source \"\$HOME/miniforge3/bin/activate\"
 fi
 
 eval \"\$(conda shell.zsh hook)\"
-conda activate $ENVRC_PLACEHOLDER"
-
-envrc_content="${envrc_content//$ENVRC_PLACEHOLDER/$ENV_NAME}"
-
-echo "$envrc_content" > .envrc
+conda activate $ENV_NAME" > .envrc
 
 direnv allow
 
