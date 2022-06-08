@@ -23,7 +23,7 @@ direnv allow
 
 # Create conda env file
 source .envrc
-conda env export --no-builds | grep -v "prefix" > "$CONDA_ENV_FILE"
+bash scripts/make/export.sh
 
 # Use pip in conda
 conda config --set pip_interop_enabled True
