@@ -2,6 +2,12 @@
 
 Templates for convenient Anaconda use
 
+# Clone into current directory
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/moisutsu/anaconda-template/main/clone_into_current_dir.sh)"
+```
+
 ## How to use
 
 Require
